@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>главная</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="message_list">
+        {% for message in messages %}
+            {{ message.time }}<br>
+            <div id="text">
+                {{ message.text }}<br>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+    <div id="new_message">
+        <form action="{% url 'add_message' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
