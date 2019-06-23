@@ -10,9 +10,7 @@
     <div id="message_list">
         {% for message in messages %}
             {{ message.time }}<br>
-            <div id="text">
-                {{ message.text }}<br>
-            </div>
+            {{ message.text }}<br>
             <hr>
         {% endfor %}
     </div>
@@ -20,7 +18,7 @@
         <form action="{% url 'add_message' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Submit">
+            <input type="submit" value="Опубликовать">
         </form>
     </div>
 </body>
